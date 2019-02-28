@@ -13,7 +13,44 @@ mysql -h vaiwan.com -u root -p -P 1234 //端口号地址
 ```
 
 
+---
 
+启动内网穿透
+1.下载工具
+git clone https://github.com/open-dingtalk/pierced.git
+
+![image](https://cdn-pub.yuque.com/lark/2018/png/bd935f2f-c3f8-44de-a658-a104bfdafc24.png)
+
+
+启动工具，执行命令“./ding -config=./ding.cfg -subdomain=域名前缀 端口”，以`mac`为例：
+
+```
+cd mac_64
+chmod 777 ./ding
+./ding -config=./ding.cfg -subdomain=abcde 8080
+```
+
+启动后界面如下图所示：
+
+![界面](https://cdn-pub.yuque.com/lark/2018/png/ddfd9389-58b6-43b4-adf9-f8db52f25bba.png)
+
+命令参数说明：
+
+参数|说明
+--|--|
+config|内网穿透的配置文件，按命令照示例固定为钉钉提供的./ding.cfg，无需修改
+subdomain|您需要使用的域名前缀，该前缀将会匹配到“vaiwan.com”前面，例如你的subdomain是abcde，启动工具后会将abcde.vaiwan.com映射到本地。
+端口|您需要代理的本地服务http-server端口，例如你本地端口为8080等
+
+2.启动完客户端后，你访问http://abcde.vaiwan.com/xxxxx都会映射到 http://127.0.0.1:8080/xxxxx
+注意：
+
+ >1. 你需要访问的域名是http://abcde.vaiwan.com/xxxxx 而不是http://abcde.vaiwan.com:8082/xxxxx
+ >2. 你启动命令的`subdomain`参数有可能被别人占用，尽量不要用常用字符，可以用自己公司名的拼音，例如：alibaba、dingding等。
+ >3. 可以在本地起个`http-server`服务，放置一个`index.html`文件，然后访问http://abcde.vaiwan.com/index.html测试一下。
+
+
+---
 
 ## window下，nodejs 安装 http-server，开启命令行HTTP服务器
 
