@@ -1,13 +1,13 @@
-# pierced
+### pierced
 钉钉内网穿透
 
-### TCP 穿透需要在数据库里面执行：
+#### TCP 穿透需要在数据库里面执行：
 ```
 GRANT ALL PRIVILEGES ON *.* TO root@'%' IDENTIFIED BY '123456';
 FLUSH PRIVILEGES;
 ```
 
-### 数据库连接命令：
+#### 数据库连接命令：
 ```
 mysql -h vaiwan.com -u root -p -P 1234 //端口号地址
 ```
@@ -15,7 +15,8 @@ mysql -h vaiwan.com -u root -p -P 1234 //端口号地址
 
 ---
 
-启动内网穿透
+# 一 启动内网穿透
+
 1.下载工具
 git clone https://github.com/open-dingtalk/pierced.git
 
@@ -52,7 +53,7 @@ subdomain|您需要使用的域名前缀，该前缀将会匹配到“vaiwan.com
 
 ---
 
-## window下，nodejs 安装 http-server，开启命令行HTTP服务器
+# 二 window下，nodejs 安装 http-server，开启命令行HTTP服务器
 
 第一步：http://nodejs.cn/  官网下载安装文件，安装 `nodejs`；
 
